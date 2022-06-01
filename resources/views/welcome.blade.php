@@ -59,44 +59,29 @@
       <v-dialog v-model="dialog" max-width="500">        
         <v-card align="center" justify="center">
           <v-card-title class="blue darken-2 white--text justify-center" >Empresas</v-card-title>    
-          <v-card-text>            
-            <v-form  ref="form" lazy-validation>    		
-              <v-container align="center" justify="center">
-			   <br>
-			    <br>
-                <v-row align="center" justify="center">
-                  <input v-model="empresa.id" hidden></input>
-				    <v-row align="center" justify="center">
-                  <v-col cols="12" md="8">
-                    <v-text-field v-model="empresa.nombre"   label="Nombre" required>{{empresa.nombre}}</v-text-field>
-                  </v-col>
-				  
-                  <v-col cols="12" md="8">
-                    <v-text-field v-model="empresa.direccion" label="Direccion" required></v-text-field>
-                  </v-col>
-				    </v-row>
-					 <v-row align="center" justify="center">
-                  <v-col cols="12" md="8">
-                    <v-text-field v-model="empresa.telefono" label="Telefono" type="number"  required></v-text-field>
-                  </v-col>
-				  <v-col cols="12" md="8">
-                    <v-text-field v-model="empresa.propietario" label="Propietario"  required></v-text-field>	
-                  </v-col>
-				   </v-row>
-				   <v-row align="center" justify="center">
-				  <v-col cols="12" md="8">
-                    <v-text-field v-model="empresa.email" label="Email" type="email"  required></v-text-field>
-                  </v-col>
-				   </v-row>
-                </v-row>
-              </v-container>            
+          <v-card-text>  
+          <v-form>             
+                        <v-container>
+                            <v-row>
+                            <input v-model="articulo.id" hidden></input>
+                            <v-col cols="12" md="4">
+                                <v-text-field v-model="articulo.descripcion" label="Descripción" solo required>{{articulo.descripcion}}</v-text-field>
+                            </v-col>
+                            <v-col cols="12" md="4">
+                                <v-text-field v-model="articulo.precio" label="Precio" type="number" prefix="$" solo required></v-text-field>
+                            </v-col>
+                            <v-col cols="12" md="4">
+                                <v-text-field v-model="articulo.stock" label="Stock" type="number" solo required></v-text-field>
+                            </v-col>
+                            </v-row>
+                        </v-container>            
+                        <v-card-actions>
+                            <v-spacer></v-spacer>
+                            <v-btn @click="dialog=false" color="blue-grey" dark>Cancelar</v-btn>
+                            <v-btn @click="guardar()" type="submit" color="blue darken-2" dark>Guardar</v-btn>
+                        </v-card-actions>
+                </v-form>          
           </v-card-text>
-          <v-card-actions>
-            <v-spacer></v-spacer>
-            <v-btn @click="dialog=false" color="blue-grey" dark>Cancelar</v-btn>
-            <v-btn @click="guardar()" type="submit" color="blue darken-2" dark>Guardar</v-btn>
-          </v-card-actions>
-          </v-form>
         </v-card>
       </v-dialog>
       </v-main>
